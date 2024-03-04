@@ -1,15 +1,12 @@
 {
     "manifest_version": 3,
-    "name": "react-boilerplate",
-    "description": "react-boilerplate for chrome extension",
+    "name": "avex-lj-3.0",
+    "description": "avex",
     "version": "1.0.0",
     "action" : {
         "default_popup": "popup.html",
         "default_title": "React Boilerplate",
         "default_icon" : "icon.png"
-    },
-    "chrome_url_overrides": {
-        "newtab": "newTab.html"
     },
     "permissions": [
         "tabs",
@@ -28,7 +25,9 @@
     },
     "content_scripts": [
         {
-            "matches": ["<all_urls>"],
+            "matches": [
+                "<all_urls>"
+            ],
             "js": ["contentScript.js"]
         }
     ]

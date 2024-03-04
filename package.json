@@ -1,6 +1,6 @@
 {
-  "name": "reactjs-chrome",
-  "author": "Himanshu Batra",
+  "name": "avex-lj-3.0",
+  "author": "Tabrez",
   "version": "1.0.1",
   "main": "index.js",
   "license": "MIT",
@@ -27,6 +27,16 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
+    "@covalenthq/client-viem-sdk": "^0.0.2",
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.0",
+    "@material-ui/core": "^4.12.4",
+    "@mui/material": "^5.15.11",
+    "@phosphor-icons/react": "^2.0.15",
+    "axios": "^1.6.7",
+    "ethers": "^6.11.1",
+    "moralis": "^2.24.3",
+    "viem": "^2.7.11",
     "autoprefixer": "^10.4.7",
     "postcss": "^8.4.14",
     "react-router-dom": "6.2",
