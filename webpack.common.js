@@ -4,6 +4,7 @@ const HtmlPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const tailwindcss = require('tailwindcss')
 const autoprefixer = require('autoprefixer')
+const NodePolyfillPlugin = require("node-polyfill-webpack-plugin")
 
 module.exports = {
     entry: {
@@ -51,6 +52,7 @@ module.exports = {
         new CleanWebpackPlugin({
             cleanStaleWebpackAssets: false
         }),
+        new NodePolyfillPlugin(),
         new CopyPlugin({
             patterns: [{
                 from: path.resolve('src/static'),

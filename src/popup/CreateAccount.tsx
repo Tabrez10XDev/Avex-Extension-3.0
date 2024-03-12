@@ -5,9 +5,15 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { ethers } from "ethers";
 import { english, generateMnemonic, mnemonicToAccount } from 'viem/accounts'
+import { Aptos, Network, AptosConfig} from "@aptos-labs/ts-sdk";
 
 function CreateAccount({setWallet, setSeedPhrase}) {
 
+  const aptosConfig = new AptosConfig({ network: Network.TESTNET }); // default to devnet
+  const aptos = new Aptos(aptosConfig); 
+
+
+  
 
   const [newSeedPhrase, setNewSeedPhrase] = useState(null);
   const navigate = useNavigate();
