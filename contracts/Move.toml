@@ -1,0 +1,11 @@
+[package]
+name = "QuestRaffler"
+version = "1.0.0"
+authors = []
+
+[addresses]
+bonk = "492413568c8c215738aeb901c59270694fff76c18238e250012235300072cdc5"
+
+[dependencies.AptosFramework]
+local = "/home/aditya/aptos-core/aptos-move/framework/aptos-framework"
+
