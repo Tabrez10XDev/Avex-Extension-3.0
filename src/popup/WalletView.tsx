@@ -9,6 +9,7 @@ import {
   Input,
   Button,
 } from "antd";
+import CaretDown from "../static/caretDown.svg"
 import { LogoutOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -379,8 +380,8 @@ console.log("trying");
           </div>
 
           <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', marginTop: 16 }}>
-            <Clock size={24} color="grey" style={{ marginRight: 10 }} />
-            <Globe size={24} color="grey" />
+            <Clock size={24} color="#979DAA" style={{ marginRight: 10 }} />
+            <Globe size={24} color="#979DAA" />
           </div>
 
 
@@ -391,33 +392,34 @@ console.log("trying");
             alignItems: 'center',
             justifyContent: 'center',
             display: 'flex',
+            marginTop:40,
             flexDirection: 'column'
           }}
         >
           <div onClick={togglePopupBalance} style={{ display: 'flex', flexDirection: 'row', alignItems:'center', marginLeft:4 }}>
-            <h3 style={{ color: 'grey', lineHeight: 1, fontWeight: '700' }}>{balanceTypes[balanceType]}</h3>
-            <CaretDown style={{ marginLeft: 0 }} size={16} color="black" />
+            <h3 style={{ color: '#979DAA', lineHeight: 1, fontWeight: '700' }}>{balanceTypes[balanceType]}</h3>
+            <CaretDown weight="bold" style={{ marginLeft: 0 }} size={16} color="#979DAA" />
           </div>
-          <h2 style={{ color: 'black', margin: 0, fontSize: 36, fontWeight: '700' }}>${balance.toFixed(3).toString().split(".")[0]}<span style={{ fontSize: 24, color: 'grey' }}>.{balance.toFixed(3).toString().split(".")[1]}</span></h2>
+          <h2 style={{ color: 'black', margin: 0, fontSize: 42, fontWeight: '700', marginTop:20 }}>${balance.toFixed(3).toString().split(".")[0]}<span style={{ fontSize: 28, color: '#979DAA' }}>.{balance.toFixed(3).toString().split(".")[1]}</span></h2>
 
-          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: "row", alignSelf: 'center', marginTop: 0 }}>
-            <div style={{ padding: "6px 8px", backgroundColor: trend < 0 ? COLORS.lightGreen : COLORS.lightGreen, borderRadius: 30, display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'row', }}>
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: "row", alignSelf: 'center', marginTop: 24 }}>
+            <div style={{ padding: "6px 8px", backgroundColor: trend < 0 ? '#ff9999' : COLORS.lightGreen, borderRadius: 30, display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'row', }}>
               {trend < 0 ?
-                <ArrowDown color='red' size={16} />
-                : <ArrowUp color={COLORS.green} size={16} />
+                <ArrowDown weight="bold" color='red' size={16} />
+                : <ArrowUp weight="bold" color={COLORS.green} size={16} />
               }
-              <p style={{ color: trend < 0 ? '#ff9999' : COLORS.green, fontSize: 14, fontWeight: 'bold', marginLeft: 0 }}>{trend.toFixed(2).toString()}%</p>
+              <p style={{ color: trend < 0 ? 'red' : COLORS.green, fontSize: 14, fontWeight: 'bold', marginLeft: 0 }}>{trend.toFixed(2).toString()}%</p>
 
             </div>
 
-            <Copy style={{ marginLeft: 8 }} size={18} color="grey" />
+            <Copy style={{ marginLeft: 8 }} size={18} color="#979DAA" />
 
 
           </div>
 
         </div>
 
-        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: '100%', marginTop: 16 }}>
+        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: '100%', marginTop: 50 }}>
           <div style={{ display: 'flex', flexDirection: 'row' }}>
 
             <p onClick={() => setCurrentTab(0)} className={currentTab == 0 ? "selected-text" : "unselected-text"}>Token</p>
@@ -427,8 +429,8 @@ console.log("trying");
 
 
           <div style={{ display: 'flex', flexDirection: 'row' }}>
-            <Plus size={16} style={{ marginRight: 16 }} color="grey" />
-            <MagnifyingGlass style={{ marginLeft: 12, marginRight: '8px' }} size={16} color="grey" />
+            <Plus weight="bold" size={16} style={{ marginRight: 16 }} color="#979DAA" />
+            <MagnifyingGlass weight="bold" style={{ marginLeft: 12, marginRight: '8px' }} size={16} color="#979DAA" />
           </div>
         </div>
 
@@ -445,11 +447,11 @@ console.log("trying");
           <div style={{ display: 'flex', flexDirection: 'row' }}>
 
             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', backgroundColor: '#F4F4F6', padding: 8, borderRadius: 30 }}>
-              <EyeSlash size={16} color="grey" />
+              <EyeSlash weight="bold" size={16} color="#979DAA" />
             </div>
 
             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', backgroundColor: '#F4F4F6', padding: 8, borderRadius: 30, marginLeft: 12 }}>
-              <DotsThreeVertical style={{}} size={16} color="grey" />
+              <DotsThreeVertical weight="bold" style={{}} size={16} color="#979DAA" />
             </div>
           </div>
         </div>
@@ -510,18 +512,18 @@ console.log("trying");
         }}
       >
         <div style={{ backgroundColor: 'white', borderRadius: 20, width: 300, height: 280, padding: 6 }} className="popup">
-          <button onClick={togglePopup} style={{ position: "absolute", top: 16, right: 16, color: 'grey' }} className="popup-close-btn">
+          <button onClick={togglePopup} style={{ position: "absolute", top: 16, right: 16, color: '#979DAA' }} className="popup-close-btn">
             X
           </button>
           <div style={{}} className="popup-content">
-            <p style={{ textAlign: 'left', color: 'grey', margin: 0, marginTop: 10, }}>Basics</p>
+            <p style={{ textAlign: 'left', color: '#979DAA', margin: 0, marginTop: 10, }}>Basics</p>
             <div style={{ display: 'flex', flexDirection: 'row', alignItems: "flex-start", marginTop: 10 }}>
               <div style={{ width: 45, height: 45, borderRadius: 30, backgroundColor: '#58BB47', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <Plus color='white' size={24} />
               </div>
               <div style={{ marginLeft: 6 }}>
                 <p style={{ textAlign: 'left', margin: 0 }}>Buy</p>
-                <p style={{ color: 'grey', margin: 0, marginTop: 4, textAlign: 'left' }}>Seamlessly buy your tokens from the market</p>
+                <p style={{ color: '#979DAA', margin: 0, marginTop: 4, textAlign: 'left' }}>Seamlessly buy your tokens from the market</p>
               </div>
             </div>
             <div style={{ display: 'flex', flexDirection: 'row', alignItems: "flex-start", marginTop: 10 }}>
@@ -530,7 +532,7 @@ console.log("trying");
               </div>
               <div style={{ marginLeft: 6 }}>
                 <p style={{ textAlign: 'left', margin: 0 }}>Lending & Borrowing</p>
-                <p style={{ color: 'grey', margin: 0, marginTop: 4, textAlign: 'left' }}>Seamlessly auto-swap and send tokens in one step.</p>
+                <p style={{ color: '#979DAA', margin: 0, marginTop: 4, textAlign: 'left' }}>Seamlessly auto-swap and send tokens in one step.</p>
               </div>
             </div>
             <div style={{ display: 'flex', flexDirection: 'row', alignItems: "flex-start", marginTop: 10 }}>
@@ -539,7 +541,7 @@ console.log("trying");
               </div>
               <div style={{ marginLeft: 6 }}>
                 <p style={{ textAlign: 'left', margin: 0 }}>Staking</p>
-                <p style={{ color: 'grey', margin: 0, marginTop: 4, textAlign: 'left' }}>Seamlessly trade and exchange tokens within your wallet.</p>
+                <p style={{ color: '#979DAA', margin: 0, marginTop: 4, textAlign: 'left' }}>Seamlessly trade and exchange tokens within your wallet.</p>
               </div>
             </div>
 

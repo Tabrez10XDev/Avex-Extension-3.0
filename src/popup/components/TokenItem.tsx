@@ -17,7 +17,7 @@ const TokenItem = (props) => {
 
                 <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
                     <div>
-                        <p style={{ fontWeight: 'bold'}}>{props.price ? `$${props.price}` : "NA"}</p>
+                        <p style={{ fontWeight: 'bold'}}>{props.price ? `$${parseFloat(props.price).toFixed(4)}` : "NA"}</p>
                         <p style={{ marginTop: 4, textAlign:'right' }}>{props.change24h_price}%</p>
                     </div>
                     <CaretDown style={{ marginLeft: 4 }} size={16} />

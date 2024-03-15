@@ -5,28 +5,59 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { ethers } from "ethers";
 import { english, generateMnemonic, mnemonicToAccount } from 'viem/accounts'
-import { Aptos, Network, AptosConfig} from "@aptos-labs/ts-sdk";
+import { Aptos, Network, AptosConfig } from "@aptos-labs/ts-sdk";
+import { AptosAccount } from "aptos";
+import * as bip39 from "@scure/bip39";
+import { bytesToHex } from "viem";
+import { derivePath } from "ed25519-hd-key";
 
-function CreateAccount({setWallet, setSeedPhrase}) {
+
+
+function CreateAccount({ setWallet, setSeedPhrase }) {
 
   const aptosConfig = new AptosConfig({ network: Network.TESTNET }); // default to devnet
-  const aptos = new Aptos(aptosConfig); 
+  const aptos = new Aptos(aptosConfig);
 
 
-  
+
 
   const [newSeedPhrase, setNewSeedPhrase] = useState(null);
   const navigate = useNavigate();
 
-  function generateWallet(){
+  function generateWallet() {
     const mnemonic = generateMnemonic(english)
     setNewSeedPhrase(mnemonic)
   }
 
+  function fromDerivePath(path: string, mnemonics: string) {
+    if (!AptosAccount.isValidPath(path)) {
+      throw new Error("Invalid derivation path");
+    }
 
-  function setWalletAndMnemonic(){
+    const normalizeMnemonics = mnemonics
+      .trim()
+      .split(/\s+/)
+      .map((part) => part.toLowerCase())
+      .join(" ");
+
+    const { key } = derivePath(path, bytesToHex(bip39.mnemonicToSeedSync(normalizeMnemonics)));
+
+    return new AptosAccount(new Uint8Array(key));
+  }
+
+   function setWalletAndMnemonic() {
     setSeedPhrase(newSeedPhrase);
-    setWallet(mnemonicToAccount(newSeedPhrase).address)
+    const add =  fromDerivePath(
+      "m/44'/637'/0'/0'/0'",
+      newSeedPhrase 
+     ).address().hex()
+    console.log(
+     add
+    );
+
+    setWallet(add)
+    
+    // setWallet(mnemonicToAccount(newSeedPhrase).address)
   }
 
 
@@ -48,7 +79,7 @@ function CreateAccount({setWallet, setSeedPhrase}) {
           Generate Seed Phrase
         </Button>
         <Card className="seedPhraseContainer">
-         {newSeedPhrase && <pre style={{whiteSpace: "pre-wrap"}}>{newSeedPhrase}</pre>}
+          {newSeedPhrase && <pre style={{ whiteSpace: "pre-wrap" }}>{newSeedPhrase}</pre>}
         </Card>
         <Button
           className="frontPageButton"
@@ -57,7 +88,7 @@ function CreateAccount({setWallet, setSeedPhrase}) {
         >
           Open Your New Wallet
         </Button>
-        <p className="frontPageBottom" onClick={()=>navigate("/")}>
+        <p className="frontPageBottom" onClick={() => navigate("/")}>
           Back Home
         </p>
       </div>
