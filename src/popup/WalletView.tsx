@@ -9,7 +9,6 @@ import {
   Input,
   Button,
 } from "antd";
-import CaretDown from "../static/caretDown.svg"
 import { LogoutOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
