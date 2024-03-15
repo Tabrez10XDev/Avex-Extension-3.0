@@ -9,8 +9,6 @@
         "default_icon" : "icon.png"
     },
     "permissions": [
-        "tabs",
-        "bookmarks",
         "storage",
         "identity"
     ],

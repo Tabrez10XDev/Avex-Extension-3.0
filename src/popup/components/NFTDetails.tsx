@@ -89,7 +89,7 @@ const NFTDetails: React.FC = (props) => {
                     </div>
                 </div>
 
-                <div style={{ backgroundColor: 'white', width: '92%', alignSelf: 'center', borderRadius: 10, padding: 8, flexDirection: 'column', display: 'flex', margin: 'auto auto', marginTop: 12 }}>
+                <div style={{ backgroundColor: 'white', width: '100%', alignSelf: 'center', borderTopLeftRadius: 10, borderTopRightRadius:10, padding: 8, flexDirection: 'column', display: 'flex', margin: 'auto auto', marginTop: 12 }}>
                     <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
 
                         <div style={{ width: '50%' }}>

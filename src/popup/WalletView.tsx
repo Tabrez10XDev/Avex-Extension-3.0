@@ -127,7 +127,6 @@ function WalletView({
         "owner": { "_eq": "0xc1f94e94c98487b940c4ca9090d9bdd1e71e380a99d792f13c994387c41101e4" },
       }
     }
-console.log("trying");
     const res = await axios({
       url: "https://api.indexer.xyz/graphql",
       method: 'post',
@@ -144,7 +143,6 @@ console.log("trying");
     let balance = 0
   
     if (res.status == 200) {
-      console.log(res.data.data.aptos.nfts[0]);
       res.data.data.aptos.nfts.forEach((ele)=>{
         balance += ele.collection.floor / (10 ** 6)
       })
@@ -399,7 +397,7 @@ console.log("trying");
             <h3 style={{ color: '#979DAA', lineHeight: 1, fontWeight: '700' }}>{balanceTypes[balanceType]}</h3>
             <CaretDown weight="bold" style={{ marginLeft: 0 }} size={16} color="#979DAA" />
           </div>
-          <h2 style={{ color: 'black', margin: 0, fontSize: 42, fontWeight: '700', marginTop:20 }}>${balance.toFixed(3).toString().split(".")[0]}<span style={{ fontSize: 28, color: '#979DAA' }}>.{balance.toFixed(3).toString().split(".")[1]}</span></h2>
+          <h2 style={{ color: 'black', margin: 0, fontSize: 42, fontWeight: '700', marginTop:10 }}>${balance.toFixed(3).toString().split(".")[0]}<span style={{ fontSize: 28, color: '#979DAA' }}>.{balance.toFixed(3).toString().split(".")[1]}</span></h2>
 
           <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: "row", alignSelf: 'center', marginTop: 24 }}>
             <div style={{ padding: "6px 8px", backgroundColor: trend < 0 ? '#ff9999' : COLORS.lightGreen, borderRadius: 30, display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'row', }}>

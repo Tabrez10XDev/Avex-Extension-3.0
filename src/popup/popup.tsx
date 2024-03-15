@@ -21,6 +21,14 @@ const Popup: React.FC = () => {
     const [seedPhrase, setSeedPhrase] = useState<string | null>(null);
     const [selectedChain, setSelectedChain] = useState<string>("0x1");
 
+    chrome.storage.local.get(["avexAdd"], function(items){
+
+        if(items['avexAdd']){
+            setSeedPhrase("Auth")
+            setWallet(items['avexAdd'])
+        }
+    });
+
 
     useEffect(() => {
         Moralis.start({
@@ -33,6 +41,18 @@ const Popup: React.FC = () => {
            
             {wallet && seedPhrase ? 
                     <Routes>
+                        <Route
+                            path="/"
+                            element={
+                                <WalletView
+                                    wallet={wallet}
+                                    setWallet={setWallet}
+                                    seedPhrase={seedPhrase}
+                                    setSeedPhrase={setSeedPhrase}
+                                    selectedChain={selectedChain}
+                                />
+                            }
+                        />
                         <Route
                             path="/yourwallet"
                             element={

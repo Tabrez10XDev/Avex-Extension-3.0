@@ -3,7 +3,7 @@ import { BulbOutlined } from "@ant-design/icons";
 import { Button, Input } from "antd";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { ethers } from "ethers";
+import { Log, ethers } from "ethers";
 import { AptosAccount } from "aptos";
 import * as bip39 from "@scure/bip39";
 import { bytesToHex } from "viem";
@@ -59,9 +59,13 @@ function RecoverAccount({ setWallet, setSeedPhrase }) {
     
 
     setSeedPhrase(typedSeed);
-    setWallet(add);
-    navigate("/yourwallet");
-    return;
+    chrome.storage.local.set({ "avexAdd": add }, function(){
+      console.log("added");
+      setWallet(add);
+      navigate("/yourwallet");
+      return; 
+     });
+
   }
 
   return (

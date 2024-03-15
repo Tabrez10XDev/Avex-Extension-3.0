@@ -39,21 +39,5 @@ const Home: React.FC = () => {
 }
 
 
-{/* <h2> Best Crypto Wallet</h2>
-        <h4 className="h4">Secure, Self Custodial, Decentralized</h4>
-        <Button
-          onClick={() => {
-            console.log("heyyy");
-            navigate("/yourwallet")}}
-            className="frontPageButton"
-        >
-          Create A Wallet
-        </Button>
-        <Button
-          onClick={() => navigate("/recover")}
-          className="frontPageButton"
-        >
-          Sign In With Seed Phrase
-        </Button> */}
 
 export default Home;

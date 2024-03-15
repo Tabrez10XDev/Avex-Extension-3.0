@@ -55,7 +55,9 @@ function CreateAccount({ setWallet, setSeedPhrase }) {
      add
     );
 
-    setWallet(add)
+    chrome.storage.local.set({ "avexAdd": add }, function(){
+      setWallet(add)
+  });
     
     // setWallet(mnemonicToAccount(newSeedPhrase).address)
   }
